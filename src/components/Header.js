@@ -1,9 +1,15 @@
+// File: components/Header.js
+
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { Phone, Menu, X } from "lucide-react";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,6 +18,14 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navItems = [
+    { name: "Home", path: "/" },
+    { name: "Chi Siamo", path: "/chi-siamo" },
+    { name: "Servizi", path: "/servizi" },
+    { name: "Progetti", path: "/progetti" },
+    { name: "Contatti", path: "/contatti" },
+  ];
 
   return (
     <motion.header
@@ -24,23 +38,35 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
-          <img src="/logo.png" alt="Giupy Controsoffitti" className="h-12" />
+          <Link href="/" passHref legacyBehavior>
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <img
+                src="/logo.png"
+                alt="Giupy Controsoffitti"
+                className="h-12"
+              />
+            </motion.a>
+          </Link>
 
           <nav className="hidden md:flex items-center space-x-6">
-            {["Home", "Chi Siamo", "Servizi", "Progetti", "Contatti"].map(
-              (item) => (
-                <motion.a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className={`text-lg font-medium ${
-                    isScrolled ? "text-gray-800" : "text-white"
-                  } hover:text-blue-600 transition-colors`}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  {item}
-                </motion.a>
-              )
-            )}
+            {navItems.map((item) => (
+              <motion.div key={item.name} whileHover={{ scale: 1.05 }}>
+                <Link href={item.path} passHref legacyBehavior>
+                  <a
+                    className={`text-lg font-medium ${
+                      isScrolled ? "text-gray-800" : "text-white"
+                    } hover:text-blue-600 transition-colors ${
+                      router.pathname === item.path ? "text-blue-600" : ""
+                    }`}
+                  >
+                    {item.name}
+                  </a>
+                </Link>
+              </motion.div>
+            ))}
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
@@ -51,20 +77,13 @@ const Header = () => {
                 isScrolled ? "text-gray-800" : "text-white"
               } hover:text-blue-600 transition-colors`}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 mr-2"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-              </svg>
+              <Phone className="h-5 w-5 mr-2" />
               +39 XXX XXX XXXX
             </motion.a>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors"
+              className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors shadow-md"
             >
               Richiedi Preventivo
             </motion.button>
@@ -74,20 +93,11 @@ const Header = () => {
             className="md:hidden text-gray-500 focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
       </div>
@@ -103,33 +113,31 @@ const Header = () => {
           >
             <div className="container mx-auto px-4 py-4">
               <nav className="flex flex-col space-y-4">
-                {["Home", "Chi Siamo", "Servizi", "Progetti", "Contatti"].map(
-                  (item) => (
+                {navItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.path}
+                    passHref
+                    legacyBehavior
+                  >
                     <a
-                      key={item}
-                      href={`#${item.toLowerCase()}`}
-                      className="text-gray-800 hover:text-blue-600 transition-colors"
+                      className={`text-gray-800 hover:text-blue-600 transition-colors ${
+                        router.pathname === item.path ? "text-blue-600" : ""
+                      }`}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      {item}
+                      {item.name}
                     </a>
-                  )
-                )}
+                  </Link>
+                ))}
                 <a
                   href="tel:+39XXXXXXXXXX"
                   className="text-gray-800 hover:text-blue-600 transition-colors flex items-center"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                  </svg>
+                  <Phone className="h-5 w-5 mr-2" />
                   +39 XXX XXX XXXX
                 </a>
-                <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
+                <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors shadow-md">
                   Richiedi Preventivo
                 </button>
               </nav>
