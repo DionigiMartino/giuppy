@@ -260,53 +260,6 @@ const renderServices = () => {
     </section>
   );
 };
-
-
-  const renderDetailedService = () => (
-    <AnimatePresence mode="wait">
-      <motion.section
-        key={activeService}
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -50 }}
-        transition={{ duration: 0.5 }}
-        className="py-20 bg-white"
-      >
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center">
-            <motion.div className="md:w-1/2 mb-8 md:mb-0 md:pr-8" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">{services[activeService]?.title}</h2>
-              <p className="text-xl text-gray-600 mb-6">{services[activeService]?.description}</p>
-              <ul className="space-y-2">
-                {[
-                  "Soluzioni personalizzate per ogni esigenza",
-                  "Utilizzo di materiali innovativi e sostenibili",
-                  "Integrazione con sistemi domotici",
-                  "Consulenza professionale e progettazione 3D",
-                ].map((item, i) => (
-                  <motion.li
-                    key={i}
-                    className="flex items-center text-gray-700"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
-                  >
-                    <CheckCircle className="text-green-500 mr-2" size={20} />
-                    {item}
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-            <motion.div className="md:w-1/2" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-              <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
-                <Image src={services[activeService]?.image} alt={services[activeService]?.title} layout="fill" objectFit="cover" />
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </motion.section>
-    </AnimatePresence>
-  );
   
 
  const renderProcess = () => (
@@ -512,7 +465,9 @@ const renderServices = () => {
   return (
     <>
       <Head>
-        <title>I Nostri Servizi - Giupy Controsoffitti | Innovazione e Design</title>
+        <title>
+          I Nostri Servizi - Giupy Controsoffitti | Innovazione e Design
+        </title>
         <meta
           name="description"
           content="Scopri i servizi innovativi di Giupy Controsoffitti: controsoffitti moderni, illuminazione integrata, isolamento acustico e design personalizzato. Trasforma il tuo spazio con soluzioni all'avanguardia."
@@ -535,9 +490,9 @@ const renderServices = () => {
       <main className="bg-gray-50 overflow-hidden">
         {renderHero()}
         {renderServices()}
-        {renderDetailedService()}
-        {renderTestimonials()}
         {renderProcess()}
+        {renderTestimonials()}
+
         {renderFAQ()}
         {renderCallToAction()}
       </main>
