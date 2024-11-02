@@ -11,7 +11,6 @@ const HomePage = () => {
       <ResultsSection />
       <ServicesSection />
       <ProjectShowcase />
-      <TeamSection />
       <TestimonialsSection />
       <NewsSection />
       <NewsletterSection />
@@ -75,7 +74,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl text-gray-100 mb-8"
           >
-            Design all'avanguardia e soluzioni personalizzate per ogni ambiente
+            Design all&apos;avanguardia e soluzioni personalizzate per ogni ambiente
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -137,25 +136,25 @@ const ResultsSection = () => {
     {
       id: 1,
       title: "Ufficio Moderno",
-      image: "/projects/modern-office.jpg",
+      image: "/img/ufficiomod.jpg",
       description: "Controsoffitto dinamico per spazi di lavoro innovativi",
     },
     {
       id: 2,
       title: "Hotel di Lusso",
-      image: "/projects/luxury-hotel.jpg",
+      image: "/img/hotellusso.jpg",
       description: "Eleganza senza tempo per ambienti esclusivi",
     },
     {
       id: 3,
       title: "Residenza Privata",
-      image: "/projects/private-residence.jpg",
+      image: "/img/respriv.jpg",
       description: "Soluzioni personalizzate per il massimo comfort",
     },
     {
       id: 4,
       title: "Centro Commerciale",
-      image: "/projects/shopping-mall.jpg",
+      image: "/img/commerciale.jpg",
       description:
         "Design accattivante per spazi commerciali di grande impatto",
     },
@@ -335,7 +334,7 @@ const ProjectShowcase = () => (
           className="md:w-1/2 relative"
         >
           <img
-            src="/project-showcase.jpg"
+            src="/img/controsoffitto.jpg"
             alt="Progetto in evidenza"
             className="rounded-lg shadow-2xl"
           />
@@ -353,90 +352,6 @@ const ProjectShowcase = () => (
   </section>
 );
 
-const TeamSection = () => {
-  const teamMembers = [
-    {
-      name: "David Cooper",
-      role: "Designer",
-      image: "/team-david-cooper.jpg",
-    },
-    {
-      name: "Monica Manly",
-      role: "Designer",
-      image: "/team-monica-manly.jpg",
-    },
-    {
-      name: "Kevin Martin",
-      role: "Designer",
-      image: "/team-kevin-martin.jpg",
-    },
-  ];
-
-  return (
-    <section className="py-20 bg-gray-100">
-      <div className="container mx-auto px-4">
-        <div className="mb-12">
-          <motion.p
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-brown-500 uppercase tracking-wider mb-2"
-          >
-            TEAM MEMBERS
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl font-bold text-gray-800"
-          >
-            Meet the Expert Team
-          </motion.h2>
-        </div>
-
-        <div className="flex flex-col md:flex-row justify-between items-start">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 w-full md:w-2/3">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative bg-white rounded-lg overflow-hidden shadow-lg"
-              >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-80 object-cover"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 p-4">
-                  <div className="bg-brown-400 text-white text-sm font-semibold py-1 px-3 rounded-full inline-block mb-2">
-                    {member.role}
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800">
-                    {member.name}
-                  </h3>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-8 md:mt-0 w-full md:w-1/3 md:pl-8"
-          >
-            <p className="text-gray-600 text-lg">
-              Lorem ipsum dolor sit amet elit, sed do eiusmod tempor to incidut
-              labore et dolore magna for aliqua.
-            </p>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 const TestimonialsSection = () => (
   <section className="py-20 bg-blue-600 text-white">

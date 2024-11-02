@@ -81,41 +81,37 @@ const ProjectsPage = () => {
       title: "Villa Moderna",
       description:
         "Controsoffitto con illuminazione LED integrata per una villa contemporanea",
-      images: [
-        "/images/progetti/villa-moderna-1.jpg",
-        "/images/progetti/villa-moderna-2.jpg",
-        "/images/progetti/villa-moderna-3.jpg",
-      ],
+      images: ["/img/villamoderna.jpg", "/img/respriv.jpg"],
     },
     {
-      title: "Ufficio Open Space",
+      title: "Studio Professionale",
       description:
         "Soluzione acustica e illuminotecnica per un grande spazio di lavoro",
-      images: [
-        "/images/progetti/ufficio-openspace-1.jpg",
-        "/images/progetti/ufficio-openspace-2.jpg",
-        "/images/progetti/ufficio-openspace-3.jpg",
-      ],
+      images: ["/img/ufficio.jpg", "/img/hotellusso.jpg"],
     },
     {
-      title: "Ristorante di Lusso",
+      title: "Atmosfera raffinata",
       description:
         "Controsoffitto decorativo con effetti tridimensionali per un'atmosfera raffinata",
-      images: [
-        "/images/progetti/ristorante-lusso-1.jpg",
-        "/images/progetti/ristorante-lusso-2.jpg",
-        "/images/progetti/ristorante-lusso-3.jpg",
-      ],
+      images: ["/img/ristorante.jpg", "/img/controsoffitto.jpg"],
     },
     {
-      title: "Centro Commerciale",
+      title: "Negozio",
       description:
         "Sistema di controsoffitti modulari per grandi superfici con integrazione impiantistica",
-      images: [
-        "/images/progetti/centro-commerciale-1.jpg",
-        "/images/progetti/centro-commerciale-2.jpg",
-        "/images/progetti/centro-commerciale-3.jpg",
-      ],
+      images: ["/img/commerciale.jpg", "/img/centro.jpg"],
+    },
+    {
+      title: "Cucina Moderna",
+      description:
+        "Controsoffitto in cartongesso resistente all'umidità per ambiente cucina",
+      images: ["/img/cucina.jpg", "/img/cucina2.jpg"],
+    },
+    {
+      title: "Parete Attrezzata",
+      description:
+        "Parete in cartongesso con nicchie e mensole integrate per soggiorno",
+      images: ["/img/parete1.jpg", "/img/parete2.jpg"],
     },
   ];
 
@@ -131,13 +127,13 @@ const ProjectsPage = () => {
         variants={heroVariants}
       >
         <Image
-          src="/images/progetti-hero.jpg"
+          src="/img/tavolirossi.png"
           alt="Giupy Controsoffitti Progetti"
           layout="fill"
           objectFit="cover"
           quality={100}
           priority
-          className="opacity-30"
+          className="opacity-70"
         />
       </motion.div>
       <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
