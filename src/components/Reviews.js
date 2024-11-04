@@ -8,7 +8,7 @@ import {
 import { Quote, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
-export default function renderTestimonials() {
+export default function RenderTestimonials() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const testimonialRef = useRef(null);
   const isInView = useInView(testimonialRef, { once: true });
