@@ -172,9 +172,13 @@ const Header = () => {
                       : "/img/logo_giupy.jpg"
                   }`}
                   alt="Giupy Controsoffitti"
-                  className={`${isScrolled ? "h-16 w-16" : "h-36 w-36"} ${
-                    // Condizioni specifiche per mobile
-                    "md:h-20 md:w-20 sm:h-12 sm:w-12"
+                  className={`${
+                    isScrolled
+                      ? "h-16 w-16" // Logo più piccolo quando la pagina è scrollata
+                      : "h-24 w-24 lg:h-32 lg:w-32" // Logo più grande su desktop quando non scrollato
+                  } ${
+                    // Dimensioni personalizzate per mobile
+                    "sm:h-12 sm:w-12 md:h-20 md:w-20"
                   }`}
                 />
               </motion.a>
