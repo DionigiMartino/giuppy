@@ -10,9 +10,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div>
             <img
-              src="/logo-white.png"
+              src="/img/logo_giupy.jpg"
               alt="Giupy Controsoffitti"
-              className="h-12 mb-6"
+              className="h-36 w-36 mb-6"
             />
             <p className="text-gray-400 mb-6">
               Trasformiamo spazi con passione e innovazione nel settore dei
@@ -43,7 +43,7 @@ const Footer = () => {
                 (item) => (
                   <li key={item}>
                     <motion.a
-                      href={`#${item.toLowerCase().replace(" ", "-")}`}
+                      href={`/${item.toLowerCase().replace(" ", "-")}`}
                       className="text-gray-400 hover:text-white transition-colors"
                       whileHover={{ x: 5 }}
                     >
@@ -83,7 +83,8 @@ const Footer = () => {
               <li className="flex items-center">
                 <i className="fas fa-map-marker-alt mr-3 text-blue-500"></i>
                 <span className="text-gray-400">
-                  Via Example 123, Città, Italia
+                  Via Augusto Pierantoni 9, Santa Maria Capua Vetere (CE),
+                  Italia
                 </span>
               </li>
               <li className="flex items-center">
@@ -92,7 +93,7 @@ const Footer = () => {
                   href="tel:+39XXXXXXXXXX"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  +39 XXX XXX XXXX
+                  +39 328 043 6031
                 </a>
               </li>
               <li className="flex items-center">
@@ -101,7 +102,7 @@ const Footer = () => {
                   href="mailto:info@giupycontrosoffitti.com"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  info@giupycontrosoffitti.com
+                  controsoffittee@libero.it
                 </a>
               </li>
             </ul>

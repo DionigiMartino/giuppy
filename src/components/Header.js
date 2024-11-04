@@ -166,9 +166,15 @@ const Header = () => {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <img
-                  src="/logo.png"
+                  src={`${
+                    isScrolled
+                      ? "/img/logo_giupy_black.jpg"
+                      : "/img/logo_giupy.jpg"
+                  }`}
                   alt="Giupy Controsoffitti"
-                  className="h-12"
+                  className={`${isScrolled ? "h-16" : "h-36"} ${
+                    isScrolled ? "w-16" : "w-36"
+                  }`}
                 />
               </motion.a>
             </Link>
@@ -193,14 +199,14 @@ const Header = () => {
 
             <div className="hidden md:flex items-center space-x-4">
               <motion.a
-                href="tel:+39XXXXXXXXXX"
+                href="tel:+3280436031"
                 whileHover={{ scale: 1.05 }}
                 className={`flex items-center ${
                   isScrolled ? "text-gray-800" : "text-white"
                 } hover:text-blue-600 transition-colors`}
               >
                 <Phone className="h-5 w-5 mr-2" />
-                +39 XXX XXX XXXX
+                +39 328 043 6031
               </motion.a>
               <motion.button
                 whileHover={{ scale: 1.05 }}

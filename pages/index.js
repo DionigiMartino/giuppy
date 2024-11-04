@@ -12,7 +12,6 @@ const HomePage = () => {
       <ServicesSection />
       <ProjectShowcase />
       <TestimonialsSection />
-      <NewsSection />
       <NewsletterSection />
       <Footer />
     </div>
@@ -74,7 +73,8 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl text-gray-100 mb-8"
           >
-            Design all&apos;avanguardia e soluzioni personalizzate per ogni ambiente
+            Design all&apos;avanguardia e soluzioni personalizzate per ogni
+            ambiente
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -319,13 +319,14 @@ const ProjectShowcase = () => (
               <p className="text-sm text-gray-600">Progetti Completati</p>
             </div>
           </div>
-          <motion.button
+          <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors"
+            href="/progetti"
           >
             Esplora i Nostri Lavori
-          </motion.button>
+          </motion.a>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 50 }}
@@ -352,7 +353,6 @@ const ProjectShowcase = () => (
   </section>
 );
 
-
 const TestimonialsSection = () => (
   <section className="py-20 bg-blue-600 text-white">
     <div className="container mx-auto px-4">
@@ -368,7 +368,8 @@ const TestimonialsSection = () => (
           >
             <p className="mb-4 text-gray-600">
               &quot;Servizio eccellente e risultati sorprendenti. Giupy
-              Controsoffitti ha trasformato completamente il nostro spazio.&quot;
+              Controsoffitti ha trasformato completamente il nostro
+              spazio.&quot;
             </p>
             <div className="flex items-center">
               <img
@@ -388,51 +389,6 @@ const TestimonialsSection = () => (
   </section>
 );
 
-const NewsSection = () => (
-  <section className="py-20 bg-gray-50">
-    <div className="container mx-auto px-4">
-      <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
-        Ultime Novità
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {[
-          "Tendenze nei Controsoffitti",
-          "Illuminazione Intelligente",
-          "Acustica Perfetta",
-        ].map((title, index) => (
-          <motion.div
-            key={index}
-            whileHover={{ y: -10 }}
-            className="bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl"
-          >
-            <img
-              src={`/news-${index + 1}.jpg`}
-              alt={title}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-6">
-              <p className="text-sm text-gray-500 mb-2">{`${
-                20 + index
-              } Apr 2023`}</p>
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">
-                {title}
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Scopri le ultime innovazioni nel mondo dei controsoffitti...
-              </p>
-              <a
-                href="#"
-                className="text-blue-600 font-semibold hover:underline"
-              >
-                Leggi di più
-              </a>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
 const NewsletterSection = () => (
   <section className="py-20 bg-gray-900 text-white">
     <div className="container mx-auto px-4">

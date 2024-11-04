@@ -111,13 +111,13 @@ const ServicesPage = () => {
         variants={heroVariants}
       >
         <Image
-          src="/images/servizi-hero.jpg"
+          src="/img/cucina.jpg"
           alt="Giupy Controsoffitti Servizi"
           layout="fill"
           objectFit="cover"
           quality={100}
           priority
-          className="opacity-30"
+          className="opacity-70"
         />
       </motion.div>
       <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
@@ -219,13 +219,6 @@ const ServicesPage = () => {
                 layoutId={`service-${index}`}
               >
                 <div className="absolute inset-0 z-0">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    layout="fill"
-                    objectFit="cover"
-                    className="transition-transform duration-500 ease-in-out transform hover:scale-110"
-                  />
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-80`}
                   />

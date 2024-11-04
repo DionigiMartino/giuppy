@@ -47,10 +47,10 @@ const ContactPage = () => {
 };
 
 const HeroSection = () => (
-  <section className="relative h-80 overflow-hidden">
+  <section className="relative h-[50vh] overflow-hidden">
     <div
       className="absolute inset-0 bg-cover bg-center"
-      style={{ backgroundImage: 'url("/img/contact-hero.jpg")' }}
+      style={{ backgroundImage: 'url("/img/storia.jpg")' }}
     ></div>
     <div className="absolute inset-0 bg-black opacity-50"></div>
     <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
@@ -74,9 +74,12 @@ const ContactSection = ({ formData, handleInputChange, handleSubmit }) => {
   ];
 
   const contactInfo = [
-    { icon: <MapPin />, text: "Via Roma 123, 00100 Roma, Italia" },
-    { icon: <Phone />, text: "+39 06 1234567" },
-    { icon: <Mail />, text: "info@giupycontrosoffitti.com" },
+    {
+      icon: <MapPin />,
+      text: "Via Augusto Pierantoni 9, Santa Maria Capua Vetere (CE), Italia",
+    },
+    { icon: <Phone />, text: "+39 328 043 6031" },
+    { icon: <Mail />, text: "controsoffittee@libero.it" },
     { icon: <Clock />, text: "Lun - Ven: 9:00 - 18:00" },
   ];
 
@@ -223,7 +226,7 @@ const MapSection = () => (
         className="w-full h-[600px] rounded-lg overflow-hidden shadow-lg"
       >
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.6540412652886!2d12.496365776378!3d41.90269087921938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61a1a67d371d%3A0x2d8e5acfe29c0f2e!2sVia%20Roma%2C%20Roma%20RM%2C%20Italia!5e0!3m2!1sit!2sit!4v1682349548096!5m2!1sit!2sit"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10133.860729120664!2d14.255549477429259!3d41.08502907133989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133aff140ba7b13f%3A0xcf45d2012f4b94e6!2sVia%20Augusto%20Pierantoni%2C%209%2C%2081055%20Santa%20Maria%20Capua%20Vetere%20CE!5e1!3m2!1sit!2sit!4v1730740167546!5m2!1sit!2sit"
           width="100%"
           height="100%"
           style={{ border: 0 }}
@@ -242,14 +245,13 @@ const CtaSection = () => {
     {
       icon: <Phone size={24} />,
       text: "Chiamaci",
-      action: "tel:+39XXXXXXXXXX",
+      action: "tel:++39 3280436031",
     },
     {
       icon: <Mail size={24} />,
       text: "Scrivici",
       action: "mailto:info@giupycontrosoffitti.com",
     },
-    { icon: <Calendar size={24} />, text: "Prenota", action: "#prenota" },
   ];
 
   return (
@@ -282,7 +284,7 @@ const CtaSection = () => {
             il tuo ambiente. Contattaci oggi stesso per una consulenza gratuita
             e personalizzata.
           </motion.p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {contactMethods.map((method, index) => (
               <motion.a
                 key={index}

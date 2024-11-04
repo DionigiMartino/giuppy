@@ -1,6 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useAnimation, useInView } from "framer-motion";
-import { Check, Star, Users, Zap, ChevronDown, ArrowRight, MousePointer } from "lucide-react";
+import {
+  motion,
+  AnimatePresence,
+  useAnimation,
+  useInView,
+} from "framer-motion";
+import {
+  Check,
+  Star,
+  Users,
+  Zap,
+  ChevronDown,
+  ArrowRight,
+  MousePointer,
+} from "lucide-react";
 import Head from "next/head";
 import Image from "next/image";
 import Header from "@/src/components/Header";
@@ -208,13 +221,13 @@ const ChiSiamoPage = () => {
             variants={heroVariants}
           >
             <Image
-              src="/images/chi-siamo-hero.jpg"
+              src="/img/chisiamointro.jpg"
               alt="Giupy Controsoffitti Team"
               layout="fill"
               objectFit="cover"
               quality={100}
               priority
-              className="opacity-30"
+              className="opacity-70"
             />
           </motion.div>
           <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
@@ -249,7 +262,6 @@ const ChiSiamoPage = () => {
           </div>
         </section>
 
-        {/* La Nostra Storia */}
         <section id="storia" className="py-20">
           <div className="container mx-auto px-4">
             <motion.h2
@@ -266,11 +278,11 @@ const ChiSiamoPage = () => {
                 viewport={{ once: true }}
               >
                 <p className="text-lg mb-6">
-                  Fondata nel 1990 da Giuseppe Rossi, Giupy Controsoffitti è
-                  nata dalla passione per il design e l&apos;architettura d&apos;interni.
-                  Ciò che iniziò come un piccolo laboratorio artigianale si è
-                  evoluto in un&apos;azienda leader nel settore dei controsoffitti di
-                  design.
+                  Fondata nel 2010 da Giuseppe Addario, Giupy Controsoffitti è
+                  nata dalla passione per il design e l&apos;architettura
+                  d&apos;interni. Ciò che iniziò come un piccolo laboratorio
+                  artigianale si è evoluto in un&apos;azienda leader nel settore
+                  dei controsoffitti di design.
                 </p>
                 <p className="text-lg mb-6">
                   Nel corso degli anni, abbiamo perfezionato le nostre tecniche,
@@ -280,9 +292,9 @@ const ChiSiamoPage = () => {
                   trasformano gli spazi in ambienti straordinari.
                 </p>
                 <p className="text-lg">
-                  La nostra dedizione all&apos;eccellenza e all&apos;innovazione continua
-                  a guidarci mentre esploriamo nuove frontiere nel design dei
-                  controsoffitti, sempre con un occhio attento alla
+                  La nostra dedizione all&apos;eccellenza e all&apos;innovazione
+                  continua a guidarci mentre esploriamo nuove frontiere nel
+                  design dei controsoffitti, sempre con un occhio attento alla
                   sostenibilità e al benessere dei nostri clienti.
                 </p>
               </motion.div>
@@ -294,7 +306,7 @@ const ChiSiamoPage = () => {
                 viewport={{ once: true }}
               >
                 <Image
-                  src="/images/storia-giupy.jpg"
+                  src="/img/storia1.jpg"
                   alt="Storia di Giupy Controsoffitti"
                   layout="fill"
                   objectFit="cover"
@@ -372,44 +384,6 @@ const ChiSiamoPage = () => {
         </section>
 
         {/* Il Nostro Team */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <motion.h2
-              className="text-4xl md:text-5xl font-bold text-center mb-16"
-              {...fadeIn}
-            >
-              Il Nostro Team
-            </motion.h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {teamMembers.map((member, index) => (
-                <motion.div
-                  key={member.name}
-                  className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow duration-300"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <motion.div
-                    className="relative w-40 h-40 mx-auto mb-4 overflow-hidden rounded-full"
-                    whileHover={{ scale: 1.1 }}
-                  >
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      layout="fill"
-                      objectFit="cover"
-                    />
-                  </motion.div>
-                  <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-                  <p className="text-gray-600 mb-4">{member.role}</p>
-                  <p className="text-sm">{member.bio}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* Testimonials Section */}
         {renderTestimonials()}
@@ -595,7 +569,7 @@ const ChiSiamoPage = () => {
                 Contattaci Ora
               </motion.a>
               <motion.a
-                href="/portfolio"
+                href="/progetti"
                 className="inline-block bg-transparent border-2 border-white text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
