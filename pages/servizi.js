@@ -203,12 +203,14 @@ const ServicesPage = () => {
           >
             Servizi Innovativi
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
                 className={`relative overflow-hidden rounded-3xl shadow-2xl cursor-pointer ${
-                  activeService === index ? "col-span-2 row-span-2" : ""
+                  activeService === index
+                    ? "col-span-1 md:col-span-2 md:row-span-2"
+                    : ""
                 }`}
                 initial={{ opacity: 0, y: 50 }}
                 animate={controls}
