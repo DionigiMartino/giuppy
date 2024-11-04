@@ -169,7 +169,7 @@ const ResultsSection = () => {
           transition={{ duration: 0.8 }}
           className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-800"
         >
-          L'Eccellenza in Numeri e Immagini
+          L&apos;Eccellenza in Numeri e Immagini
         </motion.h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
@@ -307,7 +307,7 @@ const ProjectShowcase = () => (
           </h2>
           <p className="text-gray-600 mb-8 text-lg">
             Ogni nostro lavoro è un capolavoro di design e funzionalità,
-            realizzato con materiali premium e tecniche all'avanguardia.
+            realizzato con materiali premium e tecniche all&apos;avanguardia.
           </p>
           <div className="grid grid-cols-2 gap-4 mb-8">
             <div className="bg-white p-4 rounded-lg shadow-md text-center">
@@ -367,8 +367,8 @@ const TestimonialsSection = () => (
             className="bg-white text-gray-800 p-6 rounded-xl shadow-lg"
           >
             <p className="mb-4 text-gray-600">
-              "Servizio eccellente e risultati sorprendenti. Giupy
-              Controsoffitti ha trasformato completamente il nostro spazio."
+              &quot;Servizio eccellente e risultati sorprendenti. Giupy
+              Controsoffitti ha trasformato completamente il nostro spazio.&quot;
             </p>
             <div className="flex items-center">
               <img

@@ -267,9 +267,9 @@ const ChiSiamoPage = () => {
               >
                 <p className="text-lg mb-6">
                   Fondata nel 1990 da Giuseppe Rossi, Giupy Controsoffitti è
-                  nata dalla passione per il design e l'architettura d'interni.
+                  nata dalla passione per il design e l&apos;architettura d&apos;interni.
                   Ciò che iniziò come un piccolo laboratorio artigianale si è
-                  evoluto in un'azienda leader nel settore dei controsoffitti di
+                  evoluto in un&apos;azienda leader nel settore dei controsoffitti di
                   design.
                 </p>
                 <p className="text-lg mb-6">
@@ -280,7 +280,7 @@ const ChiSiamoPage = () => {
                   trasformano gli spazi in ambienti straordinari.
                 </p>
                 <p className="text-lg">
-                  La nostra dedizione all'eccellenza e all'innovazione continua
+                  La nostra dedizione all&apos;eccellenza e all&apos;innovazione continua
                   a guidarci mentre esploriamo nuove frontiere nel design dei
                   controsoffitti, sempre con un occhio attento alla
                   sostenibilità e al benessere dei nostri clienti.
