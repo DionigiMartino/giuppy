@@ -12,8 +12,9 @@ const Footer = () => {
             <img
               src="/img/logo_giupy.jpg"
               alt="Giupy Controsoffitti"
-              className="h-36 w-36 mb-6"
+              className="h-20 w-20 sm:h-24 sm:w-24 md:h-32 md:w-32 lg:h-36 lg:w-36 mb-6"
             />
+
             <p className="text-gray-400 mb-6">
               Trasformiamo spazi con passione e innovazione nel settore dei
               controsoffitti.
