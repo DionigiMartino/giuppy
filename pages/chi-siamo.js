@@ -208,7 +208,7 @@ const ChiSiamoPage = () => {
         }}
       />
 
-      <main className="bg-gray-50 overflow-hidden">
+      <main className="bg-gray-50 overflow-x-hidden">
         {/* Hero Section */}
         <section
           ref={heroRef}
@@ -262,7 +262,7 @@ const ChiSiamoPage = () => {
           </div>
         </section>
 
-        <section id="storia" className="py-20">
+        <section id="storia" className="py-20 overflow-hidden">
           <div className="container mx-auto px-4">
             <motion.h2
               className="text-4xl md:text-5xl font-bold text-center mb-16"
@@ -317,7 +317,7 @@ const ChiSiamoPage = () => {
 
             {/* Timeline */}
             <motion.div
-              className="mt-20"
+              className="mt-20 overflow-hidden px-4"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
@@ -326,21 +326,30 @@ const ChiSiamoPage = () => {
               <h3 className="text-2xl font-semibold text-center mb-8">
                 La nostra evoluzione
               </h3>
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center relative">
+              <div className="flex flex-col md:flex-row justify-between items-center relative w-full">
+                {/* Linea orizzontale visibile solo su desktop */}
                 <div className="absolute top-1/2 left-0 right-0 h-1 bg-blue-200 transform -translate-y-1/2 hidden md:block" />
+
+                {/* Linea verticale visibile solo su mobile */}
+                <div className="absolute top-0 bottom-0 left-1/2 w-1 bg-blue-200 transform -translate-x-1/2 md:hidden h-full" />
+
                 {timeline.map((item, index) => (
                   <motion.div
                     key={item.year}
-                    className="flex flex-col items-center text-center mb-8 md:mb-0 relative z-10"
+                    className="flex flex-col items-center text-center mb-12 md:mb-0 relative z-10 w-full md:w-auto"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mb-2">
+                    <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mb-2 relative">
+                      {/* Sfondo bianco per il cerchio */}
+                      <div className="absolute inset-0 bg-white rounded-full -z-10 transform scale-[1.1]"></div>
                       {item.year}
                     </div>
-                    <p className="text-sm max-w-[150px]">{item.event}</p>
+                    <p className="text-sm max-w-[150px] mx-auto">
+                      {item.event}
+                    </p>
                   </motion.div>
                 ))}
               </div>
@@ -349,7 +358,7 @@ const ChiSiamoPage = () => {
         </section>
 
         {/* I Nostri Valori */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-white overflow-hidden">
           <div className="container mx-auto px-4">
             <motion.h2
               className="text-4xl md:text-5xl font-bold text-center mb-16"
@@ -389,7 +398,7 @@ const ChiSiamoPage = () => {
         {renderTestimonials()}
 
         {/* FAQ Section */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-white overflow-hidden">
           <div className="container mx-auto px-4">
             <motion.h2
               className="text-4xl md:text-5xl font-bold text-center mb-16"
@@ -476,7 +485,7 @@ const ChiSiamoPage = () => {
         </section>
 
         {/* Certificazioni e Riconoscimenti */}
-        <section className="py-20 bg-gray-100">
+        <section className="py-20 bg-gray-100 ">
           <div className="container mx-auto px-4">
             <motion.h2
               className="text-4xl md:text-5xl font-bold text-center mb-16"

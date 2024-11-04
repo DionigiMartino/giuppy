@@ -20,20 +20,21 @@ const HomePage = () => {
 
 const HeroSection = () => {
   return (
-    <section className="relative h-screen overflow-hidden">
-      {/* Immagine di sfondo */}
+    <section className="relative min-h-screen overflow-hidden">
+      {/* Background Image with darker overlay for better text readability */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: 'url("/img/home1.jpg")' }}
       ></div>
 
-      {/* Overlay scuro per migliorare la leggibilità del testo */}
-      <div className="absolute inset-0 bg-black opacity-40"></div>
+      {/* Darker overlay for better text contrast */}
+      <div className="absolute inset-0 bg-black opacity-60"></div>
 
-      {/* Effetto onda che taglia l'immagine */}
+      {/* Wave Effect */}
       <div className="absolute inset-0" style={{ zIndex: 2 }}>
         <svg
           className="absolute bottom-0 left-0 w-full"
+          style={{ height: "clamp(3rem, 10vw, 8rem)" }}
           viewBox="0 0 1440 320"
           preserveAspectRatio="none"
         >
@@ -56,44 +57,46 @@ const HeroSection = () => {
         </svg>
       </div>
 
-      {/* Contenuto principale */}
-      <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
-        <div className="w-full md:w-2/3">
-          <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight"
-          >
-            Trasforma il Tuo Spazio con Controsoffitti Innovativi
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl text-gray-100 mb-8"
-          >
-            Design all&apos;avanguardia e soluzioni personalizzate per ogni
-            ambiente
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <a
-              href="#contatti"
-              className="bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-100 transition-colors inline-block"
+      {/* Main Content */}
+      <div className="relative z-10 min-h-screen flex items-center">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto pt-20 lg:pt-0">
+            <motion.h1
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight"
             >
-              Richiedi un Preventivo
-            </a>
-          </motion.div>
+              Trasforma il Tuo Spazio con Controsoffitti Innovativi
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-lg sm:text-xl text-gray-100 mb-6 sm:mb-8"
+            >
+              Design all&apos;avanguardia e soluzioni personalizzate per ogni
+              ambiente
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <a
+                href="#contatti"
+                className="inline-block bg-white text-blue-600 px-6 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-blue-100 transition-colors"
+              >
+                Richiedi un Preventivo
+              </a>
+            </motion.div>
+          </div>
         </div>
       </div>
 
-      {/* Pallini animati */}
+      {/* Animated Circles */}
       <motion.div
-        className="absolute right-0 top-1/4 w-64 h-64 bg-yellow-400 rounded-full opacity-20"
+        className="absolute right-0 top-1/4 w-32 sm:w-48 lg:w-64 aspect-square bg-yellow-400 rounded-full opacity-20"
         style={{ zIndex: 1 }}
         animate={{
           scale: [1, 1.2, 1],
@@ -106,11 +109,11 @@ const HeroSection = () => {
         }}
       ></motion.div>
       <motion.div
-        className="absolute left-1/4 bottom-1/4 w-40 h-40 bg-green-400 rounded-full opacity-20"
+        className="absolute left-1/4 bottom-1/4 w-24 sm:w-32 lg:w-40 aspect-square bg-green-400 rounded-full opacity-20"
         style={{ zIndex: 1 }}
         animate={{
           scale: [1, 1.3, 1],
-          x: [0, 50, 0],
+          y: [0, 30, 0],
         }}
         transition={{
           duration: 15,
@@ -161,32 +164,32 @@ const ResultsSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-50 to-gray-100">
+    <section className="py-12 sm:py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-800"
+          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 lg:mb-16 text-gray-800"
         >
           L&apos;Eccellenza in Numeri e Immagini
         </motion.h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-12 sm:mb-16 lg:mb-20">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
-              className="bg-white p-6 rounded-lg shadow-lg text-center relative overflow-hidden"
+              className="bg-white p-4 sm:p-6 rounded-lg shadow-lg text-center relative overflow-hidden"
               whileHover={{ scale: 1.05 }}
             >
-              <h3 className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-blue-600 mb-2">
                 {stat.number}
               </h3>
-              <p className="text-gray-600">{stat.label}</p>
+              <p className="text-sm sm:text-base text-gray-600">{stat.label}</p>
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 whileHover={{ opacity: 1, scale: 1 }}
-                className="absolute top-2 right-2 text-4xl"
+                className="absolute top-2 right-2 text-2xl sm:text-3xl lg:text-4xl"
               >
                 {stat.icon}
               </motion.div>
@@ -194,11 +197,11 @@ const ResultsSection = () => {
           ))}
         </div>
 
-        <div className="mb-20">
-          <h3 className="text-3xl font-semibold text-center mb-10 text-gray-800">
+        <div className="mb-12 sm:mb-16 lg:mb-20">
+          <h3 className="text-2xl sm:text-3xl font-semibold text-center mb-6 sm:mb-8 lg:mb-10 text-gray-800">
             I Nostri Progetti in Evidenza
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {projects.map((project) => (
               <motion.div
                 key={project.id}
@@ -210,7 +213,7 @@ const ResultsSection = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-64 object-cover rounded-lg shadow-lg"
+                  className="w-full aspect-[4/3] object-cover rounded-lg shadow-lg"
                 />
                 <AnimatePresence>
                   {activeProject === project.id && (
@@ -220,10 +223,10 @@ const ResultsSection = () => {
                       exit={{ opacity: 0 }}
                       className="absolute inset-0 bg-black bg-opacity-70 rounded-lg flex flex-col justify-end p-4"
                     >
-                      <h4 className="text-white text-xl font-semibold mb-2">
+                      <h4 className="text-lg sm:text-xl font-semibold mb-2 text-white">
                         {project.title}
                       </h4>
-                      <p className="text-gray-200 text-sm">
+                      <p className="text-sm text-gray-200">
                         {project.description}
                       </p>
                     </motion.div>
@@ -241,16 +244,16 @@ const ResultsSection = () => {
           className="text-center relative"
         >
           <div className="absolute inset-0 flex items-center justify-center -z-10">
-            <div className="w-64 h-64 bg-blue-100 rounded-full filter blur-3xl opacity-70"></div>
+            <div className="w-48 sm:w-56 lg:w-64 aspect-square bg-blue-100 rounded-full filter blur-3xl opacity-70"></div>
           </div>
-          <h3 className="text-2xl font-semibold mb-6 text-gray-800">
+          <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-gray-800">
             Pronto a Trasformare il Tuo Spazio?
           </h3>
           <motion.a
             href="#contatti"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-block bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors"
+            className="inline-block bg-blue-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-blue-700 transition-colors"
           >
             Richiedi una Consulenza Gratuita
           </motion.a>
@@ -261,12 +264,12 @@ const ResultsSection = () => {
 };
 
 const ServicesSection = () => (
-  <section className="py-20 bg-white">
+  <section className="py-12 sm:py-16 lg:py-20 bg-white">
     <div className="container mx-auto px-4">
-      <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
+      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-800">
         I Nostri Servizi
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
         {[
           { name: "Controsoffitti Moderni", icon: "🏠" },
           { name: "Illuminazione Integrata", icon: "💡" },
@@ -276,13 +279,15 @@ const ServicesSection = () => (
           <motion.div
             key={service.name}
             whileHover={{ y: -10 }}
-            className="bg-gray-50 p-6 rounded-xl shadow-lg text-center transition-all duration-300 hover:shadow-xl"
+            className="bg-gray-50 p-4 sm:p-6 rounded-xl shadow-lg text-center transition-all duration-300 hover:shadow-xl"
           >
-            <div className="text-4xl mb-4">{service.icon}</div>
-            <h3 className="text-xl font-semibold mb-2 text-gray-800">
+            <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">
+              {service.icon}
+            </div>
+            <h3 className="text-lg sm:text-xl font-semibold mb-2 text-gray-800">
               {service.name}
             </h3>
-            <p className="text-gray-600">
+            <p className="text-sm sm:text-base text-gray-600">
               Soluzioni innovative per ogni esigenza.
             </p>
           </motion.div>
@@ -293,57 +298,65 @@ const ServicesSection = () => (
 );
 
 const ProjectShowcase = () => (
-  <section className="py-20 bg-gray-50">
+  <section className="py-12 sm:py-16 lg:py-20 bg-gray-50 overflow-x-hidden">
     <div className="container mx-auto px-4">
-      <div className="flex flex-col md:flex-row items-center">
+      <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="md:w-1/2 mb-10 md:mb-0 pr-0 md:pr-10"
+          className="w-full lg:w-1/2"
         >
-          <h2 className="text-4xl font-bold mb-6 text-gray-800">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-gray-800">
             Progetti che Ispirano
           </h2>
-          <p className="text-gray-600 mb-8 text-lg">
+          <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">
             Ogni nostro lavoro è un capolavoro di design e funzionalità,
             realizzato con materiali premium e tecniche all&apos;avanguardia.
           </p>
-          <div className="grid grid-cols-2 gap-4 mb-8">
+          <div className="grid grid-cols-2 gap-4 mb-6 sm:mb-8">
             <div className="bg-white p-4 rounded-lg shadow-md text-center">
-              <p className="text-3xl font-bold text-blue-600">98%</p>
-              <p className="text-sm text-gray-600">Clienti Soddisfatti</p>
+              <p className="text-2xl sm:text-3xl font-bold text-blue-600">
+                98%
+              </p>
+              <p className="text-xs sm:text-sm text-gray-600">
+                Clienti Soddisfatti
+              </p>
             </div>
             <div className="bg-white p-4 rounded-lg shadow-md text-center">
-              <p className="text-3xl font-bold text-blue-600">200+</p>
-              <p className="text-sm text-gray-600">Progetti Completati</p>
+              <p className="text-2xl sm:text-3xl font-bold text-blue-600">
+                200+
+              </p>
+              <p className="text-xs sm:text-sm text-gray-600">
+                Progetti Completati
+              </p>
             </div>
           </div>
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors"
+            className="inline-block bg-blue-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-blue-700 transition-colors"
             href="/progetti"
           >
             Esplora i Nostri Lavori
           </motion.a>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="md:w-1/2 relative"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full lg:w-1/2 relative"
         >
           <img
             src="/img/controsoffitto.jpg"
             alt="Progetto in evidenza"
-            className="rounded-lg shadow-2xl"
+            className="w-full rounded-lg shadow-2xl"
           />
-          <div className="absolute bottom-4 left-4 bg-white p-4 rounded-lg shadow-md">
-            <h3 className="font-semibold text-gray-800 mb-1">
+          <div className="absolute bottom-4 left-4 bg-white p-3 sm:p-4 rounded-lg shadow-md max-w-[calc(100%-2rem)]">
+            <h3 className="font-semibold text-gray-800 mb-1 text-sm sm:text-base">
               Controsoffitto Moderno
             </h3>
-            <p className="text-sm text-gray-600">
+            <p className="text-xs sm:text-sm text-gray-600">
               Design minimalista per uffici
             </p>
           </div>
@@ -354,32 +367,38 @@ const ProjectShowcase = () => (
 );
 
 const TestimonialsSection = () => (
-  <section className="py-20 bg-blue-600 text-white">
+  <section className="py-12 sm:py-16 lg:py-20 bg-blue-600 text-white">
     <div className="container mx-auto px-4">
-      <h2 className="text-4xl font-bold text-center mb-12">
+      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12">
         Cosa Dicono i Nostri Clienti
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
         {[1, 2, 3].map((num) => (
           <motion.div
             key={num}
             whileHover={{ scale: 1.05 }}
-            className="bg-white text-gray-800 p-6 rounded-xl shadow-lg"
+            className="bg-white text-gray-800 p-4 sm:p-6 rounded-xl shadow-lg"
           >
-            <p className="mb-4 text-gray-600">
+            <p className="mb-4 text-sm sm:text-base text-gray-600">
               &quot;Servizio eccellente e risultati sorprendenti. Giupy
               Controsoffitti ha trasformato completamente il nostro
               spazio.&quot;
             </p>
             <div className="flex items-center">
-              <img
-                src={`/client-${num}.jpg`}
-                alt={`Cliente ${num}`}
-                className="w-12 h-12 rounded-full mr-4"
-              />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-200 mr-3 sm:mr-4 overflow-hidden">
+                <img
+                  src={`/client-${num}.jpg`}
+                  alt={`Cliente ${num}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <div>
-                <p className="font-semibold text-gray-800">Cliente {num}</p>
-                <p className="text-sm text-gray-500">Proprietario di Casa</p>
+                <p className="font-semibold text-sm sm:text-base text-gray-800">
+                  Cliente {num}
+                </p>
+                <p className="text-xs sm:text-sm text-gray-500">
+                  Proprietario di Casa
+                </p>
               </div>
             </div>
           </motion.div>
@@ -390,24 +409,26 @@ const TestimonialsSection = () => (
 );
 
 const NewsletterSection = () => (
-  <section className="py-20 bg-gray-900 text-white">
+  <section className="py-12 sm:py-16 lg:py-20 bg-gray-900 text-white">
     <div className="container mx-auto px-4">
-      <div className="bg-blue-600 rounded-xl p-8 shadow-2xl">
-        <h2 className="text-3xl font-bold mb-4">Resta Aggiornato</h2>
-        <p className="mb-6 text-lg">
+      <div className="bg-blue-600 rounded-xl p-4 sm:p-6 lg:p-8 shadow-2xl">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
+          Resta Aggiornato
+        </h2>
+        <p className="mb-4 sm:mb-6 text-base sm:text-lg">
           Iscriviti alla nostra newsletter per ricevere le ultime novità e
           offerte esclusive.
         </p>
-        <form className="flex flex-col md:flex-row gap-4">
+        <form className="flex flex-col sm:flex-row gap-3 sm:gap-4">
           <input
             type="email"
             placeholder="Il tuo indirizzo email"
-            className="flex-grow p-3 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            className="flex-grow p-2 sm:p-3 rounded-full text-gray-800 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-300"
           />
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
+            className="bg-white text-blue-600 px-6 sm:px-8 py-2 sm:py-3 rounded-full text-sm sm:text-base font-semibold hover:bg-gray-100 transition-colors"
           >
             Iscriviti Ora
           </motion.button>

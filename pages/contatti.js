@@ -84,7 +84,7 @@ const ContactSection = ({ formData, handleInputChange, handleSubmit }) => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-blue-50 to-white">
+    <section className="py-24 bg-gradient-to-br from-blue-50 to-white overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
@@ -209,7 +209,7 @@ const ContactSection = ({ formData, handleInputChange, handleSubmit }) => {
 };
 
 const MapSection = () => (
-  <section className="py-20 bg-white">
+  <section className="py-20 bg-white overflow-hidden">
     <div className="container mx-auto px-4">
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
@@ -255,7 +255,7 @@ const CtaSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-x-hidden">
       <div className="absolute inset-0 bg-blue-700 opacity-50 z-0">
         <motion.div
           className="absolute inset-0 bg-blue-500"
