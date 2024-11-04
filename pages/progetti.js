@@ -169,7 +169,7 @@ const ProjectsPage = () => {
   );
 
   const renderGallery = () => (
-    <section ref={galleryRef} id="galleria" className="py-20 bg-gray-100">
+    <section ref={galleryRef} id="galleria" className="py-20 bg-gray-100  overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-4xl md:text-5xl font-bold text-center mb-16"
@@ -177,7 +177,7 @@ const ProjectsPage = () => {
         >
           Galleria Progetti
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 overflow-hidden">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -227,11 +227,14 @@ const ProjectsPage = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -50 }}
           transition={{ duration: 0.5 }}
-          className="py-20 bg-white"
+          className="py-20 bg-white overflow-hidden"
         >
           <div className="container mx-auto px-4">
-            <div className="flex justify-between items-center mb-8">
-              <motion.h2 className="text-4xl font-bold" {...fadeIn}>
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8">
+              <motion.h2
+                className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-0"
+                {...fadeIn}
+              >
                 {projects[activeProject].title}
               </motion.h2>
               <motion.button
@@ -247,11 +250,12 @@ const ProjectsPage = () => {
                 Torna alla Galleria
               </motion.button>
             </div>
+
             <div className="flex flex-col md:flex-row items-start">
               <motion.div
-                className="md:w-1/2 mb-8 md:mb-0 md:pr-8"
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
+                className="w-full md:w-1/2 mb-8 md:mb-0 md:pr-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
                 <p className="text-xl text-gray-600 mb-6">
@@ -280,23 +284,18 @@ const ProjectsPage = () => {
                   ))}
                 </ul>
               </motion.div>
+
               <motion.div
-                className="md:w-1/2"
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
+                className="w-full md:w-1/2"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {projects[activeProject].images.map((image, index) => (
-                    <motion.div
+                    <div
                       key={index}
-                      className="relative h-48 rounded-lg overflow-hidden cursor-pointer"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => {
-                        setModalImage(image);
-                        setIsModalOpen(true);
-                      }}
+                      className="relative aspect-video rounded-lg overflow-hidden pointer-events-none md:pointer-events-auto"
                     >
                       <Image
                         src={image}
@@ -305,13 +304,24 @@ const ProjectsPage = () => {
                         }`}
                         layout="fill"
                         objectFit="cover"
-                        placeholder="blur"
-                        blurDataURL="/images/placeholder.jpg"
+                        quality={100}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
-                      <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                        <Maximize className="text-white" size={24} />
+                      {/* Overlay e interattività solo per desktop */}
+                      <div className="hidden md:block">
+                        <motion.div
+                          className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => {
+                            setModalImage(image);
+                            setIsModalOpen(true);
+                          }}
+                        >
+                          <Maximize className="text-white" size={24} />
+                        </motion.div>
                       </div>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </motion.div>
@@ -326,7 +336,7 @@ const ProjectsPage = () => {
     <AnimatePresence>
       {isModalOpen && (
         <motion.div
-          className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center"
+          className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center  overflow-hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -369,9 +379,9 @@ const ProjectsPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="bg-gray-100 py-8"
+          className="bg-gray-100 py-8  overflow-hidden"
         >
-          <div className="container mx-auto px-4 flex justify-between items-center">
+          <div className="container mx-auto px-4 flex justify-between items-center ">
             <button
               className="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300"
               onClick={() =>
@@ -403,7 +413,7 @@ const ProjectsPage = () => {
   );
 
   const renderCallToAction = () => (
-    <section className="py-20 bg-blue-600 text-white">
+    <section className="py-20 bg-blue-600 text-white overflow-hidden">
       <div className="container mx-auto px-4 text-center">
         <motion.h2
           className="text-4xl md:text-5xl font-bold mb-6"
@@ -482,7 +492,7 @@ const ProjectsPage = () => {
         }}
       />
 
-      <main className="bg-gray-50 overflow-hidden">
+      <main className="bg-gray-50 overflow-x-hidden">
         {renderHero()}
         {renderGallery()}
         {renderProjectDetail()}
