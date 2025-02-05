@@ -2,9 +2,14 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html lang="en">
-      <Head />
-      <body className="antialiased">
+    <Html>
+      <Head>
+        <meta
+          name="google-site-verification"
+          content="O80fv6zWz6Wm169DRa6tQGEEDcG0Rff6TRGBIo1wpX0"
+        />
+      </Head>
+      <body>
         <Main />
         <NextScript />
       </body>
